@@ -5,23 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ruhallah Mayar | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #1d4ed8;
-      --secondary-color: #2563eb;
+      --primary: #2563eb;
+      --secondary: #1e3a8a;
+      --light-bg: #f8fafc;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
     }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
+
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
@@ -29,73 +44,103 @@
   <!-- Navbar -->
   <header class="sticky top-0 bg-white shadow z-50">
     <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-      <h1 class="text-xl font-bold font-montserrat">Ruhallah Mayar</h1>
+      <h1 class="text-xl font-bold">Ruhallah Mayar</h1>
       <ul class="hidden md:flex space-x-6">
         <li><a href="#about" class="hover:text-blue-600">About</a></li>
         <li><a href="#experience" class="hover:text-blue-600">Experience</a></li>
         <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
         <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
         <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
-        <li><a href="resume.pdf" download class="hover:text-blue-600">CV</a></li>
       </ul>
       <div class="md:hidden">
-        <button id="menu-btn" class="text-xl">☰</button>
+        <button id="menu-toggle" class="focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
     </nav>
-    <ul id="mobile-menu" class="hidden flex-col md:hidden px-6 pb-4 space-y-2">
-      <li><a href="#about" class="block">About</a></li>
-      <li><a href="#experience" class="block">Experience</a></li>
-      <li><a href="#skills" class="block">Skills</a></li>
-      <li><a href="#projects" class="block">Projects</a></li>
-      <li><a href="#contact" class="block">Contact</a></li>
-      <li><a href="resume.pdf" download class="block">CV</a></li>
-    </ul>
+    <div id="mobile-menu" class="md:hidden px-6 pb-4 hidden">
+      <ul class="space-y-2">
+        <li><a href="#about" class="block hover:text-blue-600">About</a></li>
+        <li><a href="#experience" class="block hover:text-blue-600">Experience</a></li>
+        <li><a href="#skills" class="block hover:text-blue-600">Skills</a></li>
+        <li><a href="#projects" class="block hover:text-blue-600">Projects</a></li>
+        <li><a href="#contact" class="block hover:text-blue-600">Contact</a></li>
+      </ul>
+    </div>
   </header>
 
   <!-- Hero -->
-  <section class="text-center py-20 bg-gradient-to-br from-blue-50 to-white">
-    <h2 class="text-4xl font-bold mb-4 font-montserrat">Crafting CRM-integrated digital strategies that drive results.</h2>
-    <p class="text-lg text-gray-600 mb-6">B2B Digital Strategist | CRM & Project Optimization | Data-Driven Marketing</p>
+  <section class="text-center py-20 bg-gradient-to-r from-blue-100 to-blue-200 animate-fade-in">
+    <h2 class="text-4xl font-bold mb-4">Crafting CRM-integrated digital strategies that drive results.</h2>
+    <p class="text-lg text-gray-700 mb-6">B2B Digital Strategist | CRM & Project Optimization | Data-Driven Marketing</p>
     <div class="flex justify-center space-x-4">
       <a href="https://linkedin.com/in/rmayar" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a>
       <a href="https://github.com/rmayar" target="_blank" class="text-gray-800 hover:underline">GitHub</a>
     </div>
   </section>
 
-  <!-- Sections -->
-  <section id="about" class="container mx-auto px-6 py-12 fade-in">
+  <!-- About -->
+  <section id="about" class="container mx-auto px-6 py-12 animate-slide-up">
     <h3 class="text-2xl font-semibold mb-4">About Me</h3>
-    <p class="text-gray-700">Results-driven professional with 7+ years of international experience in project coordination, quality assurance, CRM systems, and digital marketing...</p>
+    <p class="text-gray-700 leading-relaxed">
+      Results-driven professional with 7+ years of international experience in project coordination, quality assurance, CRM systems, and digital marketing. Proven ability to lead cross-functional teams, improve operational efficiency, and deliver data-driven insights in fast-paced environments.
+    </p>
   </section>
 
-  <section id="experience" class="container mx-auto px-6 py-12 fade-in">
-    <h3 class="text-2xl font-semibold mb-6">Experience</h3>
-    <div class="space-y-6">
-      <div>
-        <h4 class="text-xl font-bold">B2B Sales & Marketing Manager</h4>
-        <p class="text-gray-600">Skyworld GmbH – Hamburg (2023–Current)</p>
-        <ul class="list-disc list-inside text-gray-700">
-          <li>Partner onboarding and digital marketing campaigns</li>
-        </ul>
+  <!-- Experience -->
+  <section id="experience" class="bg-gray-50 py-12 animate-slide-up">
+    <div class="container mx-auto px-6">
+      <h3 class="text-2xl font-semibold mb-6">Experience</h3>
+      <div class="space-y-6">
+        <div>
+          <h4 class="text-xl font-bold">B2B Sales & Marketing Manager</h4>
+          <p class="text-gray-600">Skyworld GmbH – Hamburg (2023–Current)</p>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Managed partner onboarding and digital marketing campaigns</li>
+            <li>Optimized CRM workflows and conducted internal training</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold">Senior Quality Control Analyst</h4>
+          <p class="text-gray-600">NielsenIQ – Dubai (2022)</p>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Led QA for South Asia market research projects</li>
+            <li>Conducted audits, enhanced vendor performance</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills with Progress Bars -->
-  <section id="skills" class="bg-gray-100 py-12 fade-in">
+  <!-- Skills -->
+  <section id="skills" class="py-12 bg-gradient-to-r from-gray-100 to-gray-200 animate-slide-up">
     <div class="container mx-auto px-6">
       <h3 class="text-2xl font-semibold mb-6">Skills</h3>
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid md:grid-cols-2 gap-4">
         <div>
-          <p class="mb-1">CRM Systems</p>
-          <div class="bg-gray-300 h-2 rounded-full">
-            <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+          <h4 class="font-semibold">Project & Ops</h4>
+          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
           </div>
         </div>
         <div>
-          <p class="mb-1">Project Management</p>
-          <div class="bg-gray-300 h-2 rounded-full">
-            <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+          <h4 class="font-semibold">CRM & Sales</h4>
+          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold">Marketing & Branding</h4>
+          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold">Data & QA</h4>
+          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 88%"></div>
           </div>
         </div>
       </div>
@@ -103,52 +148,46 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="container mx-auto px-6 py-12 fade-in">
+  <section id="projects" class="py-12 container mx-auto px-6 animate-slide-up">
     <h3 class="text-2xl font-semibold mb-6">Projects</h3>
     <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white p-6 rounded shadow">
-        <h4 class="font-semibold mb-2">CRM Optimization Toolkit</h4>
-        <p>Streamlined B2B client workflows using Salesforce automations and analytics dashboards.</p>
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+        <h4 class="text-xl font-bold mb-2">CRM Optimization Toolkit</h4>
+        <p>Developed internal tools to improve CRM workflows using automation and dashboards.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+        <h4 class="text-xl font-bold mb-2">Marketing Funnel Tracker</h4>
+        <p>Built performance analytics tracker to visualize conversion rates in real-time.</p>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="container mx-auto px-6 py-12 fade-in">
-    <h3 class="text-2xl font-semibold mb-4">Contact</h3>
-    <p class="mb-2">📍 Hamburg, Germany</p>
-    <p class="mb-2">📞 01739232912</p>
-    <p class="mb-6">✉️ contact@rmayar.de</p>
-    <form class="space-y-4">
-      <input type="text" placeholder="Your Name" class="w-full p-2 border rounded" required />
-      <input type="email" placeholder="Your Email" class="w-full p-2 border rounded" required />
-      <textarea placeholder="Your Message" class="w-full p-2 border rounded" rows="5" required></textarea>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send</button>
-    </form>
+  <section id="contact" class="bg-gray-50 py-12 animate-slide-up">
+    <div class="container mx-auto px-6">
+      <h3 class="text-2xl font-semibold mb-4">Contact</h3>
+      <p class="mb-2">📍 Hamburg, 22111 Germany</p>
+      <p class="mb-2">📞 01739232912</p>
+      <p class="mb-6">✉️ contact@rmayar.de</p>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full p-2 border border-gray-300 rounded" required />
+        <input type="email" placeholder="Your Email" class="w-full p-2 border border-gray-300 rounded" required />
+        <textarea placeholder="Your Message" class="w-full p-2 border border-gray-300 rounded" rows="5" required></textarea>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send Message</button>
+      </form>
+    </div>
   </section>
 
-  <footer class="text-center text-gray-600 py-6">
+  <!-- Footer -->
+  <footer class="text-center text-gray-600 py-6 animate-fade-in">
     &copy; 2025 Ruhallah Mayar. All rights reserved.
   </footer>
 
+  <!-- Scripts -->
   <script>
-    // Scroll animation
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
     });
   </script>
 </body>
