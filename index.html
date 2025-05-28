@@ -5,30 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ruhallah Mayar | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --primary-color: #1d4ed8;
+      --secondary-color: #2563eb;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="bg-white text-gray-800">
   <!-- Navbar -->
   <header class="sticky top-0 bg-white shadow z-50">
     <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-      <h1 class="text-xl font-bold">Ruhallah Mayar</h1>
-      <ul class="flex space-x-6">
+      <h1 class="text-xl font-bold font-montserrat">Ruhallah Mayar</h1>
+      <ul class="hidden md:flex space-x-6">
         <li><a href="#about" class="hover:text-blue-600">About</a></li>
         <li><a href="#experience" class="hover:text-blue-600">Experience</a></li>
         <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
+        <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
         <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
-        <li><a href="resume.pdf" download class="hover:text-blue-600">Download CV</a></li>
+        <li><a href="resume.pdf" download class="hover:text-blue-600">CV</a></li>
       </ul>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-xl">☰</button>
+      </div>
     </nav>
+    <ul id="mobile-menu" class="hidden flex-col md:hidden px-6 pb-4 space-y-2">
+      <li><a href="#about" class="block">About</a></li>
+      <li><a href="#experience" class="block">Experience</a></li>
+      <li><a href="#skills" class="block">Skills</a></li>
+      <li><a href="#projects" class="block">Projects</a></li>
+      <li><a href="#contact" class="block">Contact</a></li>
+      <li><a href="resume.pdf" download class="block">CV</a></li>
+    </ul>
   </header>
 
   <!-- Hero -->
-  <section class="text-center py-20 bg-gray-100">
-    <h2 class="text-4xl font-bold mb-4">Crafting CRM-integrated digital strategies that drive results.</h2>
+  <section class="text-center py-20 bg-gradient-to-br from-blue-50 to-white">
+    <h2 class="text-4xl font-bold mb-4 font-montserrat">Crafting CRM-integrated digital strategies that drive results.</h2>
     <p class="text-lg text-gray-600 mb-6">B2B Digital Strategist | CRM & Project Optimization | Data-Driven Marketing</p>
     <div class="flex justify-center space-x-4">
       <a href="https://linkedin.com/in/rmayar" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a>
@@ -36,114 +62,94 @@
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="container mx-auto px-6 py-12">
+  <!-- Sections -->
+  <section id="about" class="container mx-auto px-6 py-12 fade-in">
     <h3 class="text-2xl font-semibold mb-4">About Me</h3>
-    <p class="text-gray-700 leading-relaxed">
-      Results-driven professional with 7+ years of international experience in project coordination, quality assurance, CRM systems, and digital marketing. Proven ability to lead cross-functional teams, improve operational efficiency, and deliver data-driven insights in fast-paced environments. Adept in managing client relationships, streamlining digital processes, and aligning business goals with technology.
-    </p>
+    <p class="text-gray-700">Results-driven professional with 7+ years of international experience in project coordination, quality assurance, CRM systems, and digital marketing...</p>
   </section>
 
-  <!-- Accomplishments -->
-  <section class="bg-gray-50 py-12">
-    <div class="container mx-auto px-6">
-      <h3 class="text-2xl font-semibold mb-6">Accomplishments</h3>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded shadow">
-          <h4 class="font-semibold mb-2">Process Automation</h4>
-          <p>Reduced CRM manual workload and improved data accuracy by 60%.</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow">
-          <h4 class="font-semibold mb-2">B2B Client Success</h4>
-          <p>Onboarded 50+ enterprise partners, reduced technical issues by 40%.</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow">
-          <h4 class="font-semibold mb-2">Marketing Performance</h4>
-          <p>Launched targeted ad campaigns that increased conversions.</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow">
-          <h4 class="font-semibold mb-2">Quality Assurance</h4>
-          <p>Improved accuracy and vendor compliance on regional projects.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" class="container mx-auto px-6 py-12">
+  <section id="experience" class="container mx-auto px-6 py-12 fade-in">
     <h3 class="text-2xl font-semibold mb-6">Experience</h3>
     <div class="space-y-6">
       <div>
         <h4 class="text-xl font-bold">B2B Sales & Marketing Manager</h4>
         <p class="text-gray-600">Skyworld GmbH – Hamburg (2023–Current)</p>
         <ul class="list-disc list-inside text-gray-700">
-          <li>Managed partner onboarding and digital marketing campaigns</li>
-          <li>Optimized CRM workflows and conducted internal training</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-xl font-bold">Senior Quality Control Analyst</h4>
-        <p class="text-gray-600">NielsenIQ – Dubai (2022)</p>
-        <ul class="list-disc list-inside text-gray-700">
-          <li>Led QA for South Asia market research projects</li>
-          <li>Conducted audits, enhanced vendor performance</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-xl font-bold">CRM Coordinator</h4>
-        <p class="text-gray-600">CEC Global Services – Dubai (2020–2022)</p>
-        <ul class="list-disc list-inside text-gray-700">
-          <li>Managed CRM systems and client compliance</li>
-          <li>Supported high-net-worth clients with tools & guidance</li>
+          <li>Partner onboarding and digital marketing campaigns</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="bg-gray-100 py-12">
+  <!-- Skills with Progress Bars -->
+  <section id="skills" class="bg-gray-100 py-12 fade-in">
     <div class="container mx-auto px-6">
       <h3 class="text-2xl font-semibold mb-6">Skills</h3>
-      <div class="grid md:grid-cols-2 gap-4 text-gray-700">
+      <div class="grid md:grid-cols-2 gap-6">
         <div>
-          <strong>Project & Ops:</strong> Workflow Optimization, Stakeholder Coordination, Agile Support
+          <p class="mb-1">CRM Systems</p>
+          <div class="bg-gray-300 h-2 rounded-full">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+          </div>
         </div>
         <div>
-          <strong>CRM & Sales:</strong> Salesforce, Zoho, Customer CRMs, B2B Sales
+          <p class="mb-1">Project Management</p>
+          <div class="bg-gray-300 h-2 rounded-full">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+          </div>
         </div>
-        <div>
-          <strong>Marketing:</strong> Meta Ads, Content Strategy, Analytics
-        </div>
-        <div>
-          <strong>Quality & Data:</strong> QA Audits, KPI Reporting, Compliance
-        </div>
-        <div>
-          <strong>Technical Tools:</strong> Office 365, Google Workspace, CMS, Basic HTML/CSS
-        </div>
-        <div>
-          <strong>Languages:</strong> English (C2), German (B1), Persian (C2), Urdu (B2)
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container mx-auto px-6 py-12 fade-in">
+    <h3 class="text-2xl font-semibold mb-6">Projects</h3>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded shadow">
+        <h4 class="font-semibold mb-2">CRM Optimization Toolkit</h4>
+        <p>Streamlined B2B client workflows using Salesforce automations and analytics dashboards.</p>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="container mx-auto px-6 py-12">
+  <section id="contact" class="container mx-auto px-6 py-12 fade-in">
     <h3 class="text-2xl font-semibold mb-4">Contact</h3>
-    <p class="mb-2">📍 Hamburg, 22111 Germany</p>
+    <p class="mb-2">📍 Hamburg, Germany</p>
     <p class="mb-2">📞 01739232912</p>
     <p class="mb-6">✉️ contact@rmayar.de</p>
     <form class="space-y-4">
-      <input type="text" placeholder="Your Name" class="w-full p-2 border border-gray-300 rounded" required />
-      <input type="email" placeholder="Your Email" class="w-full p-2 border border-gray-300 rounded" required />
-      <textarea placeholder="Your Message" class="w-full p-2 border border-gray-300 rounded" rows="5" required></textarea>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send Message</button>
+      <input type="text" placeholder="Your Name" class="w-full p-2 border rounded" required />
+      <input type="email" placeholder="Your Email" class="w-full p-2 border rounded" required />
+      <textarea placeholder="Your Message" class="w-full p-2 border rounded" rows="5" required></textarea>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send</button>
     </form>
   </section>
 
-  <!-- Footer -->
   <footer class="text-center text-gray-600 py-6">
     &copy; 2025 Ruhallah Mayar. All rights reserved.
   </footer>
+
+  <script>
+    // Scroll animation
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
