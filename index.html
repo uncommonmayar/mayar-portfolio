@@ -214,20 +214,24 @@
     <nav id="navbar" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-<a href="#" class="flex items-center space-x-2">
-  <div class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-md">
-    <img
-      src="logo.png"
-      alt="Ruhallah Mayar Logo"
-      class="w-full h-full object-contain"
-      onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-10 h-10 rounded-full bg-gradient flex items-center justify-center text-white font-bold\'>RM</div>'"
-    >
-  </div>
-  <div>
-    <h1 class="text-xl font-bold">Ruhallah Mayar</h1>
-    <p class="text-xs text-gray-500">Digital Strategist</p>
-  </div>
-</a>
+                <a href="#" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center overflow-hidden relative">
+                        <img
+                            src="logo.png"
+                            alt="Ruhallah Mayar Logo"
+                            class="w-full h-full object-contain absolute"
+                            onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div class=\'w-10 h-10 rounded-full bg-gradient flex items-center justify-center text-white font-bold\'>RM</div>')"
+                        >
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Ruhallah Mayar</h1>
+                        <p class="text-xs text-gray-500">Digital Strategist</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
 
                 
                 <div class="hidden md:flex items-center space-x-8">
